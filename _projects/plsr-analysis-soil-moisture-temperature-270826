@@ -1,1 +1,78 @@
+---
+title: "Predicting Soil Moisture & Temperature from Hyperspectral Data (PLSR)"
+date: 2026-08-27
+summary: "Built PLSR models in R to predict soil moisture and temperature from hyperspectral reflectance data, comparing raw spectra against SNV-preprocessed spectra."
+tools: [R, PLSR, prospectr, pls, Hyperspectral Data]
+repo_url: ""
+notebook_url: ""
+log2fc: 1.8
+neglogp: 3.1
+---
 
+## Overview
+
+Soil moisture and temperature are two key variables in precision
+agriculture and environmental monitoring, but measuring them directly
+across large areas is expensive and slow. This project tests whether
+hyperspectral reflectance data (454–950 nm) can be used to predict
+both variables using Partial Least Squares Regression (PLSR). The dataset was retrieved from Kaggle
+[https://www.kaggle.com/datasets/binaryjoker/hyperspectral-benchmark-dataset-on-soil-moisture/data?select=soilmoisture_dataset.csv]
+
+## Methods
+
+**1. Data preparation.** Loaded the hyperspectral dataset in R, checked
+the distribution of both target variables (soil moisture and soil
+temperature) with histograms, boxplots, and a Shapiro-Wilk normality
+test.
+
+**2. Spectral filtering.** Selected only the valid spectral bands
+between 454–950 nm from the dataset as predictors.
+
+**3. Preprocessing comparison.** Built two versions of the data: raw
+spectra, and spectra after Standard Normal Variate (SNV) correction,
+to see whether preprocessing improved prediction accuracy.
+
+```r
+library(prospectr)
+library(pls)
+
+# SNV preprocessing
+X_snv <- standardNormalVariate(as.matrix(X))
+
+# PLSR model with cross-validation
+model_y1 <- plsr(Target ~ Spectra,
+                  data = ds_y1,
+                  scale = TRUE,
+                  validation = "CV")
+```
+
+**4. Model selection.** Chose the optimal number of components for
+each model based on the lowest adjusted CV error (RMSECV), checked
+across a range of components rather than a single fixed value.
+
+**5. Evaluation.** For each final model, calculated R² (cross-validated),
+RMSECV, and RPD (Residual Prediction Deviation) as the main performance
+metrics.
+
+## Results
+
+![Measured vs predicted soil moisture](/assets/img/plsr-soil/measured-vs-predicted-moisture.png)
+
+![Measured vs predicted soil temperature](/assets/img/plsr-soil/measured-vs-predicted-temperature.png)
+
+![PLSR regression coefficients across the spectrum](/assets/img/plsr-soil/regression-coefficients.png)
+
+Summarize your actual numbers here, for example:
+
+- Soil moisture model: R² (CV) = ..., RMSECV = ..., RPD = ...
+- Soil temperature model: R² (CV) = ..., RMSECV = ..., RPD = ...
+
+Note which wavelength regions had the strongest regression coefficients,
+and what that might suggest biologically or physically (e.g. water
+absorption bands).
+
+## Next steps
+
+- Validate the model on an independent field dataset
+- Compare PLSR against other regression methods (Random Forest, SVR)
+- Test on a wider spectral range or different soil types
