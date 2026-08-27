@@ -316,6 +316,7 @@ cat("Excel export completed\n")
 ```
 
 ## Results
+![After SNV Analysis](/assets/plsr-file/After%20SNV%20Analysis.png)
 
 ![Measured vs predicted soil moisture](/assets/img/plsr-soil/measured-vs-predicted-moisture.png)
 
