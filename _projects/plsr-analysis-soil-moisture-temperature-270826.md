@@ -316,7 +316,7 @@ cat("Excel export completed\n")
 ```
 
 ## Results
-![Before SNV Analysis](assets/plsr-file/Before%20SNV%20Analysis.png)
+![Before SNV Analysis](/assets/plsr-file/Before%20SNV%20Analysis.png)
 
 ![After SNV Analysis](/assets/plsr-file/After%20SNV%20Analysis.png)
 
