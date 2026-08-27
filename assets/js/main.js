@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!plotGroup || cards.length === 0) return;
 
-  // Area plot (mengikuti viewBox svg: x 60-500, y 20-370, sumbu y dibalik)
   var xMin = 60, xMax = 500, yMin = 20, yMax = 370;
 
   var points = Array.prototype.map.call(cards, function (card) {
@@ -32,15 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
   points.forEach(function (p) {
     var cx = scaleX(p.x);
     var cy = scaleY(p.y);
-    var significant = p.y >= (yHi * 0.55); // di atas "ambang layak dilirik"
-
     var circle = document.createElementNS(svgNS, 'circle');
     circle.setAttribute('cx', cx);
     circle.setAttribute('cy', cy);
-    circle.setAttribute('r', significant ? 9 : 6);
-    circle.setAttribute('fill', significant
-      ? (p.x >= 0 ? 'var(--accent-up)' : 'var(--accent-down)')
-      : 'var(--muted-dot)');
+    circle.setAttribute('r', 8);
+    circle.setAttribute('fill', 'var(--accent-down)');
     circle.classList.add('dot');
     circle.setAttribute('tabindex', '0');
     circle.setAttribute('role', 'button');
