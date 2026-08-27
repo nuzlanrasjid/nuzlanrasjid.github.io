@@ -1,6 +1,6 @@
 ---
 title: "Predicting Soil Moisture & Temperature from Hyperspectral Data (PLSR)"
-date: 2026-08-27
+date: 2025-08-27
 summary: "Built PLSR models in R to predict soil moisture and temperature from hyperspectral reflectance data, comparing raw spectra against SNV-preprocessed spectra."
 tools: [R, PLSR, prospectr, pls, Hyperspectral Data]
 repo_url: ""
@@ -15,8 +15,9 @@ Soil moisture and temperature are two key variables in precision
 agriculture and environmental monitoring, but measuring them directly
 across large areas is expensive and slow. This project tests whether
 hyperspectral reflectance data (454–950 nm) can be used to predict
-both variables using Partial Least Squares Regression (PLSR). The dataset was retrieved from Kaggle
-[https://www.kaggle.com/datasets/binaryjoker/hyperspectral-benchmark-dataset-on-soil-moisture/data?select=soilmoisture_dataset.csv]
+both variables using Partial Least Squares Regression (PLSR).
+
+The dataset used in this project was sourced from [Kaggle](https://www.kaggle.com/datasets/binaryjoker/hyperspectral-benchmark-dataset-on-soil-moisture).
 
 ## Methods
 
