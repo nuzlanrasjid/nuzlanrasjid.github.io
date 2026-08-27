@@ -1,7 +1,7 @@
 ---
-title: "Model PLSR untuk Prediksi Kadar Senyawa dari Data Spektral"
+title: "PLSR Model for Predicting Compound Concentration from Spectral Data"
 date: 2025-03-02
-summary: "Membangun model Partial Least Squares Regression untuk memprediksi konsentrasi senyawa target dari data spektroskopi, lengkap dengan validasi silang."
+summary: "Built a Partial Least Squares Regression model to predict target compound concentration from spectroscopy data, with full cross-validation."
 tools: [Python, scikit-learn, PLSR, NumPy, matplotlib]
 repo_url: "https://github.com/usernamekamu/nama-repo-plsr"
 notebook_url: ""
@@ -9,18 +9,18 @@ log2fc: -1.4
 neglogp: 2.9
 ---
 
-## Ringkasan
+## Overview
 
-Jelaskan konteks datanya: jenis data spektral (misalnya NIR, Raman), apa
-yang diprediksi, dan kenapa PLSR jadi pilihan metode (cocok untuk data
-dengan banyak variabel yang saling berkorelasi tinggi).
+Describe the context: the type of spectral data (e.g. NIR, Raman), what
+is being predicted, and why PLSR was chosen (well-suited for data with
+many highly correlated variables).
 
-## Metode
+## Methods
 
-1. Preprocessing sinyal (smoothing, normalisasi, derivative)
-2. Split data train/test
-3. Tentukan jumlah komponen optimal via cross-validation
-4. Fit model PLSR
+1. Signal preprocessing (smoothing, normalization, derivatives)
+2. Train/test split
+3. Determine the optimal number of components via cross-validation
+4. Fit the PLSR model
 
 ```python
 from sklearn.cross_decomposition import PLSRegression
@@ -30,11 +30,12 @@ pls = PLSRegression(n_components=n_opt)
 y_pred_cv = cross_val_predict(pls, X_train, y_train, cv=10)
 ```
 
-## Hasil
+## Results
 
-Tampilkan metrik performa (RMSE, R², RPD), dan plot predicted vs actual.
+Report performance metrics (RMSE, R², RPD) and a predicted-vs-actual
+plot.
 
-## Yang bisa dikembangkan lagi
+## Next steps
 
-Misalnya: bandingkan dengan model lain (Random Forest, SVR), atau uji
-robustness terhadap noise instrumen.
+For example: compare against other models (Random Forest, SVR), or test
+robustness against instrument noise.

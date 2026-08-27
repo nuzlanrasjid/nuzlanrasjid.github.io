@@ -1,7 +1,7 @@
 ---
-title: "Analisis Differential Expression RNA-seq pada Jaringan Hati"
+title: "Differential Expression Analysis of RNA-seq Data in Liver Tissue"
 date: 2025-01-15
-summary: "Pipeline RNA-seq dari raw counts hingga daftar gen signifikan menggunakan DESeq2, termasuk visualisasi volcano plot dan enrichment analysis."
+summary: "An RNA-seq pipeline from raw counts to a list of significant genes using DESeq2, including volcano plot visualization and enrichment analysis."
 tools: [Python, R, DESeq2, Bioconductor, pandas]
 repo_url: "https://github.com/usernamekamu/nama-repo-deseq2"
 notebook_url: ""
@@ -9,18 +9,18 @@ log2fc: 2.1
 neglogp: 3.4
 ---
 
-## Ringkasan
+## Overview
 
-Jelaskan di sini konteks datanya: dari mana data RNA-seq berasal (misalnya
-GEO/SRA), berapa jumlah sampel per kelompok, dan pertanyaan biologis yang
-ingin dijawab.
+Describe the context here: where the RNA-seq data came from (e.g.
+GEO/SRA), how many samples per group, and the biological question you
+wanted to answer.
 
-## Metode
+## Methods
 
-1. QC raw reads dengan FastQC
-2. Alignment / quantifikasi (contoh: Salmon, STAR)
-3. Import ke R, jalankan `DESeq2`
-4. Filter gen dengan `padj < 0.05` dan `|log2FoldChange| > 1`
+1. QC raw reads with FastQC
+2. Alignment / quantification (e.g. Salmon, STAR)
+3. Import into R, run `DESeq2`
+4. Filter genes with `padj < 0.05` and `|log2FoldChange| > 1`
 
 ```r
 dds <- DESeqDataSetFromMatrix(countData = counts,
@@ -30,13 +30,13 @@ dds <- DESeq(dds)
 res <- results(dds)
 ```
 
-## Hasil
+## Results
 
-Tulis temuan utama: berapa gen yang signifikan naik/turun, pathway apa yang
-muncul dari enrichment analysis, dan gambar volcano plot atau heatmap kalau
-ada.
+Summarize the key findings: how many genes were significantly up/down,
+which pathways emerged from the enrichment analysis, and include the
+volcano plot or heatmap if you have one.
 
-## Yang bisa dikembangkan lagi
+## Next steps
 
-Catat keterbatasan atau langkah lanjutan (misal: validasi qPCR, integrasi
-dengan data proteomik, dsb).
+Note any limitations or follow-up work (e.g. qPCR validation,
+integration with proteomics data, etc.).
