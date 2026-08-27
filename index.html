@@ -10,20 +10,18 @@ title: Home
     <p class="hero__subtitle">
       I'm {{ site.title }}, working at the intersection of molecular biology,
       bioinformatics, and data science. I enjoy turning complex datasets into
-      clear insights. &mdash Each point on this plot is one project.
-      <strong>Click a standout point</strong> to see the details.
+      clear insights &mdash; each point on this plot is one project.
+      <strong>Click a point</strong> to see the details.
     </p>
   </div>
 
   <div class="hero__plot">
-    <svg id="volcano-plot" viewBox="0 0 520 420" role="img" aria-label="Volcano plot showing projects as data points">
+    <svg id="volcano-plot" viewBox="0 0 520 420" role="img" aria-label="Plot showing projects as data points">
       <!-- axes -->
       <line class="axis" x1="60" y1="20" x2="60" y2="370"></line>
       <line class="axis" x1="60" y1="370" x2="500" y2="370"></line>
       <text class="axis-label" x="280" y="405" text-anchor="middle">log2(effect size) &rarr;</text>
       <text class="axis-label axis-label--y" x="-195" y="24" text-anchor="middle" transform="rotate(-90)">&larr; -log10(significance)</text>
-      <line class="threshold" x1="60" y1="120" x2="500" y2="120" stroke-dasharray="4 5"></line>
-      <text class="axis-label" x="495" y="112" text-anchor="end">"worth a look" threshold</text>
       <g id="plot-points"></g>
     </svg>
     <div id="plot-tooltip" class="plot-tooltip" hidden></div>
