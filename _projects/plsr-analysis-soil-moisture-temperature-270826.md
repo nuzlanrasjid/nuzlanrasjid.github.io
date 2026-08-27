@@ -69,3 +69,4 @@ metrics.
 ![Measured vs predicted soil temperature](/assets/plsr-file/Measured%20vs%20Predicted%20soil%20temperature.png)
 
 ![PLSR regression coefficients soil moisture across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20Moisture.png)
+![PLSR regression coefficients soil temperature across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20temperature.png)
