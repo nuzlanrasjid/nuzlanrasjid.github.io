@@ -3,6 +3,9 @@ title: "Predicting Soil Moisture & Temperature from Hyperspectral Data (PLSR)"
 date: 2025-08-27
 summary: "Built PLSR models in R to predict soil moisture and temperature from hyperspectral reflectance data, comparing raw spectra against SNV-preprocessed spectra."
 tools: [R, PLSR, prospectr, pls, Hyperspectral Data]
+repo_url: ""
+log2fc: 1.8
+neglogp: 3.1
 ---
 
 ## Overview
