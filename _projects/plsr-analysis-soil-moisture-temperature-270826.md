@@ -316,10 +316,14 @@ cat("Excel export completed\n")
 ```
 
 ## Results
+![Before SNV Analysis](assets/plsr-file/Before%20SNV%20Analysis.png)
+
 ![After SNV Analysis](/assets/plsr-file/After%20SNV%20Analysis.png)
 
-![Measured vs predicted soil moisture](/assets/img/plsr-soil/measured-vs-predicted-moisture.png)
+![Measured vs predicted soil moisture](/assets/plsr-file/Measured%20vs%20Predicted%20soil%20moisture.png)
 
-![Measured vs predicted soil temperature](/assets/img/plsr-soil/measured-vs-predicted-temperature.png)
+![Measured vs predicted soil temperature](/assets/plsr-file/Measured%20vs%20Predicted%20soil%20temperature.png)
 
-![PLSR regression coefficients across the spectrum](/assets/img/plsr-soil/regression-coefficients.png)
+![PLSR regression coefficients soil moisture across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20Moisture.png)
+
+![PLSR regression coefficients across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20temperature.png)
