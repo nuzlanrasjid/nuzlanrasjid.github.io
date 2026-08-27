@@ -1,0 +1,35 @@
+title: "Nuzlan Rasjid"
+tagline: "Computational Biology & Data Science"
+description: "Personal Portfolio in Computational Biology and Data Science."
+email: "nuzlanrasjid96@gmail.com"
+github_username: "nuzlanrasjid"
+linkedin_url: "https://linkedin.com/in/nuzlan-rasjid"
+
+# --- Jangan diubah kecuali kamu paham dampaknya ---
+baseurl: ""
+url: ""
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

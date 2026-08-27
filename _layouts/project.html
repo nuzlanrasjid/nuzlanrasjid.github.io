@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="project-detail">
+  <a class="project-detail__back" href="{{ '/' | relative_url }}#projects">&larr; kembali ke semua project</a>
+
+  <p class="mono-tag project-detail__date">{{ page.date | date: "%Y-%m-%d" }}</p>
+  <h1 class="project-detail__title">{{ page.title }}</h1>
+  <p class="project-detail__summary">{{ page.summary }}</p>
+
+  <div class="project-detail__tags">
+    {% for tool in page.tools %}<span class="pill">{{ tool }}</span>{% endfor %}
+  </div>
+
+  <div class="project-detail__links">
+    {% if page.repo_url %}<a class="btn" href="{{ page.repo_url }}" target="_blank" rel="noopener">Lihat repo &rarr;</a>{% endif %}
+    {% if page.notebook_url %}<a class="btn btn--ghost" href="{{ page.notebook_url }}" target="_blank" rel="noopener">Lihat notebook &rarr;</a>{% endif %}
+  </div>
+
+  <div class="project-detail__body">
+    {{ content }}
+  </div>
+</article>

@@ -1,0 +1,66 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div class="hero__text">
+    <p class="mono-tag">analysis.log &mdash; portfolio</p>
+    <h1 class="hero__title">Mencari sinyal<br>di tengah noise biologis.</h1>
+    <p class="hero__subtitle">
+      Saya {{ site.title }} &mdash; mengerjakan analisis RNA-seq, differential
+      expression, dan model machine learning (termasuk PLSR) untuk data
+      biologis. Setiap titik di plot ini adalah satu project.
+      <strong>Klik titik yang menonjol</strong> untuk melihat detailnya.
+    </p>
+  </div>
+
+  <div class="hero__plot">
+    <svg id="volcano-plot" viewBox="0 0 520 420" role="img" aria-label="Volcano plot berisi daftar project sebagai titik data">
+      <!-- axes -->
+      <line class="axis" x1="60" y1="20" x2="60" y2="370"></line>
+      <line class="axis" x1="60" y1="370" x2="500" y2="370"></line>
+      <text class="axis-label" x="280" y="405" text-anchor="middle">log2(effect size) &rarr;</text>
+      <text class="axis-label axis-label--y" x="-195" y="24" text-anchor="middle" transform="rotate(-90)">&larr; -log10(signifikansi)</text>
+      <line class="threshold" x1="60" y1="120" x2="500" y2="120" stroke-dasharray="4 5"></line>
+      <text class="axis-label" x="495" y="112" text-anchor="end">ambang "layak dilirik"</text>
+      <g id="plot-points"></g>
+    </svg>
+    <div id="plot-tooltip" class="plot-tooltip" hidden></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="section-eyebrow">tentang</h2>
+  <p class="about__text">
+    Tulis 2&ndash;4 kalimat di sini: Biology enthusiast at the intersection of molecular biology, bioinformatics, and data science. I enjoy turning complex datasets into clear insights, whether it's spotting patterns in biological datasets or tackling everyday data problems with Python and R. Additionally, I tutor junior and senior high school students, breaking down biology concepts into lessons that are fun and easy to understand.
+  </p>
+  <div class="about__skills">
+    <span class="pill">Python</span>
+    <span class="pill">DESeq2</span>
+    <span class="pill">R</span>
+    <span class="pill">scikit-learn</span>
+    <span class="pill">PLSR</span>
+    <span class="pill">pandas</span>
+    <span class="pill">Bioconductor</span>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <h2 class="section-eyebrow">project</h2>
+
+  <div class="project-list">
+    {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+    {% for project in sorted_projects %}
+    <article class="project-card" id="{{ project.slug }}" data-x="{{ project.log2fc }}" data-y="{{ project.neglogp }}" data-title="{{ project.title }}">
+      <p class="mono-tag project-card__date">{{ project.date | date: "%Y-%m-%d" }}</p>
+      <h3 class="project-card__title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      <p class="project-card__summary">{{ project.summary }}</p>
+      <div class="project-card__tags">
+        {% for tool in project.tools %}<span class="pill">{{ tool }}</span>{% endfor %}
+      </div>
+      <a class="project-card__link" href="{{ project.url | relative_url }}">Lihat detail &rarr;</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
