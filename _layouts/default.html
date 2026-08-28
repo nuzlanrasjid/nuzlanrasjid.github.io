@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.description }}">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-
   <header class="site-header">
     <a class="site-header__mark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <nav class="site-header__nav">
@@ -22,11 +19,9 @@
       <a href="{{ '/' | relative_url }}#contact">contact</a>
     </nav>
   </header>
-
   <main>
     {{ content }}
   </main>
-
   <footer class="site-footer" id="contact">
     <div class="site-footer__inner">
       <p class="site-footer__line">// end of file</p>
@@ -34,4 +29,10 @@
         <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">github.com/{{ site.github_username }}</a>
         {% if site.linkedin_url %}<a href="{{ site.linkedin_url }}" target="_blank" rel="noopener">linkedin</a>{% endif %}
-        {% if site.google_scholar %}<a href="{{ site.google_scholar }}" target="_blank" rel="noopener">google
+        {% if site.google_scholar %}<a href="{{ site.google_scholar }}" target="_blank" rel="noopener">google scholar</a>{% endif %}
+      </div>
+    </div>
+  </footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
