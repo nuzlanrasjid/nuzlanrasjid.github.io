@@ -1,10 +1,10 @@
 ---
-title: "Differential Gene Expression Analysis with DESeq2 (Drosophila pasilla dataset)"
+title: "Differential Gene Expression Analysis with DESeq2 (_Drosophila pasilla_ dataset)"
 date: 2026-08-28
 summary: "Built a DESeq2 differential expression pipeline in R to identify genes affected by pasilla knockdown in Drosophila melanogaster, from raw counts to an annotated volcano plot."
 tools: [R, DESeq2, pheatmap, ggplot2, RNA-seq]
 repo_url: "https://github.com/nuzlanrasjid/REPLACE-WITH-REPO-NAME"
-log2fc: 1
+log2fc: 4
 neglogp: 1.3
 ---
 
