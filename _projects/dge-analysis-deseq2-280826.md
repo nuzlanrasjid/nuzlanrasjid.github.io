@@ -65,9 +65,7 @@ change.
 
 ## Results
 
-![PCA plot of samples by treatment and sequencing type](/assets/dge-file/PCA%20Plot.png)
-![Sample-to-sample distance heatmap](/assets/dge-file/Sample%20Distance%20Heatmap.png)
-![Heatmap of top 10 differentially expressed genes with sample annotation](/assets/dge-file/Top%2010%20Genes%20Heatmap.png)
-![MA plot before shrinkage](/assets/dge-file/MA%20Plot%20Before%20Shrinkage.png)
-![MA plot after apeglm shrinkage](/assets/dge-file/MA%20Plot%20After%20Shrinkage.png)
-![Volcano plot of differentially expressed genes](/assets/dge-file/Volcano%20Plot.png)
+![PCA plot of samples by treatment and sequencing type](/assets/dge_analysis/PCA%20plot.png)
+![Sample-to-sample distance heatmap](/assets/dge_analysis/heatmap%20treatment.png)
+![Heatmap of top 10 differentially expressed genes with sample annotation](/assets/dge_analysis/heatmap%20with%20annotation.png)
+![Volcano plot of differentially expressed genes](/assets/dge_analysis/Volcano%20Plot.png)
