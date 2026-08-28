@@ -1,5 +1,5 @@
 ---
-title: "Differential Gene Expression Analysis with DESeq2 (<em>Drosophila pasilla</em> dataset)"
+title: "Differential Gene Expression Analysis with DESeq2 (<em>Drosophila melanogaster</em> dataset)"
 date: 2026-08-28
 summary: "Built a DESeq2 differential expression pipeline in R to identify genes affected by pasilla knockdown in Drosophila melanogaster, from raw counts to an annotated volcano plot."
 tools: [R, DESeq2, pheatmap, ggplot2, RNA-seq]
@@ -30,7 +30,8 @@ Samples were sequenced as a mix of single-end and paired-end libraries
 **1. Data preparation.** Loaded the count matrix and sample metadata
 into R, verified that sample names in the metadata matched the count
 matrix columns (and were in the same order), and set `Treatment` and
-`Sequencing` as factors.
+`Sequencing` as factors, which was important to define them as categorical
+variables for the DGE analysis.
 
 **2. Model design.** Built a `DESeqDataSet` with design
 `~ Sequencing + Treatment`, treating library type as a blocking
@@ -57,8 +58,8 @@ resLFC <- lfcShrink(dds, coef = "Treatment_treated_vs_untreated", type = "apeglm
 ```
 
 **5. Evaluation.** For each candidate gene, evaluated significance
-using adjusted p-value (padj < 0.05) together with effect size
-(|log2FoldChange| > 1), rather than p-value alone, to avoid flagging
+using adjusted p-value (padj < 0.05) with effect size
+(|log2FoldChange| > 1), rather than p-value alone, to avoid labeling
 genes with a statistically significant but biologically negligible
 change.
 
