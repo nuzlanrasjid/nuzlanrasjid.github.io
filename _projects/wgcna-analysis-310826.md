@@ -82,9 +82,9 @@ moduleTraitCor <- cor(MEs, traits_combined, use = "pairwise.complete.obs")
 
 ## Results
 
-![Cluster dendrogram with detected gene modules](/assets/wgcna_metabric/dendrogram_modul.png)
+![Cluster dendrogram with detected gene modules](/assets/wgcna-analysis/dendrogram_modul.png)
 
-![Module-trait relationship heatmap across tumor size, tumor stage, and PAM50 subtype](/assets/wgcna_metabric/module_trait_relationship.png)
+![Module-trait relationship heatmap across tumor size, tumor stage, and PAM50 subtype](/assets/wgcna-analysis/module_trait_relationship.png)
 
 The network resolved into **6 distinct gene modules** (plus one
 unassigned/grey module) at the selected soft-thresholding power.
