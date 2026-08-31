@@ -11,13 +11,12 @@ neglogp: 1.8
 ## Overview
 
 Weighted Gene Co-expression Network Analysis (WGCNA) is a widely used
-approach for finding structure in high-dimensional expression data:
-rather than testing genes one at a time, it groups genes with similar
-expression patterns into "modules" and relates each module — as a
-single summary profile — to sample-level traits. This project runs a
-full WGCNA workflow end-to-end — from a raw expression table to
-detected gene modules and a module–trait correlation heatmap — on a
-large clinical cohort with multiple trait types (continuous and
+approach for finding structure in expression data rather than testing 
+genes one at a time, it groups genes with similar expression patterns 
+into "modules" and relates each module, as a single summary profile, 
+to sample-level traits. This project runs a WGCNA workflow from a raw 
+expression table to detected gene modules and a module–trait correlation
+heatmap on a large clinical cohort with multiple trait types (continuous and
 categorical).
 
 The dataset used is the public **METABRIC** breast cancer dataset
@@ -28,9 +27,9 @@ subtype, tumor size, and tumor stage.
 
 ## Methods
 
-**1. Data preparation.** Loaded the raw METABRIC table into R and
-programmatically separated it into three column groups — clinical
-annotations, somatic mutation flags, and gene expression values —
+**1. Data preparation.** Loaded the raw data into R and
+separated it into three column groups, e.g., clinical
+annotations, somatic mutation flags, and gene expression values, 
 based on naming pattern and data type. Built a sample × gene
 expression matrix and a matching sample × trait matrix, and verified
 that both were aligned to the same sample order.
@@ -66,8 +65,8 @@ genes per module into a single representative value per sample.
 **5. Module–trait relationships and evaluation.** Correlated module
 eigengenes against clinical traits using Pearson correlation and
 Student's p-value (`corPvalueStudent()`). Continuous traits (tumor
-size, tumor stage) were used directly; PAM50 subtype — a nominal,
-unordered category — was one-hot encoded rather than integer-encoded,
+size, tumor stage) were used directly; PAM50 subtype, a nominal,
+unordered category, was one-hot encoded rather than integer-encoded,
 to avoid implying a false ranking between subtypes. Identifier and
 batch-like numeric columns (`patient_id`, `cohort`) and the
 near-constant `cancer_type` variable (1,903 of 1,904 samples in a
@@ -89,8 +88,8 @@ moduleTraitCor <- cor(MEs, traits_combined, use = "pairwise.complete.obs")
 
 The network resolved into **6 distinct gene modules** (plus one
 unassigned/grey module) at the selected soft-thresholding power.
-Module–trait correlations revealed biologically plausible patterns —
-notably, the *blue* and *turquoise* modules show opposing correlation
+Module–trait correlations revealed biologically plausible patterns, 
+especially, the *blue* and *turquoise* modules show opposing correlation
 trends across PAM50 subtypes (Basal vs. Luminal A), consistent with
 known transcriptomic differences between these breast cancer
 subtypes. Full correlation coefficients, p-values, and per-module
