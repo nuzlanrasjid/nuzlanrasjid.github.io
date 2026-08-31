@@ -3,7 +3,7 @@ title: "Gene Co-expression Network Analysis (WGCNA) on Breast Cancer Transcripto
 date: 2026-08-31
 summary: "Built a WGCNA gene co-expression network pipeline in R to identify modules of co-expressed genes in breast cancer transcriptomic data and link them to clinical traits including PAM50 subtype."
 tools: [R, WGCNA, dplyr, fastDummies]
-repo_url: "https://github.com/nuzlanrasjid/"
+repo_url: "https://github.com/nuzlanrasjid/wgcna-analysis-metabric"
 log2fc: 2
 neglogp: 1.8
 ---
