@@ -13,10 +13,9 @@ neglogp: 1.3
 RNA-seq differential expression analysis is one of the most common
 entry points into transcriptomics: given raw read counts across
 samples, identify which genes change significantly between conditions.
-This project runs a full DESeq2 workflow end-to-end — from count
-matrix and sample metadata to a filtered gene list and a set of
-diagnostic and results visualizations — on a two-condition experiment
-with an additional library-type covariate.
+This project runs a DESeq2 workflow from count matrix and sample metadata
+to a filtered gene list and a set of diagnostic and results visualizations 
+on a two-condition experiment with an additional library-type covariate.
 
 The dataset used is the public **pasilla** dataset (Brooks et al.,
 2011), RNA-seq of *Drosophila melanogaster* S2-DRSC cells with and
