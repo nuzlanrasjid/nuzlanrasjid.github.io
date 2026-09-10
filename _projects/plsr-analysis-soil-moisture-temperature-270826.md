@@ -69,4 +69,23 @@ metrics.
 ![Measured vs predicted soil temperature](/assets/plsr-file/Measured%20vs%20Predicted%20soil%20temperature.png)
 
 ![PLSR regression coefficients soil moisture across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20Moisture.png)
+
+| Model | R² (CV) | RMSECV | RPD |
+|---|---|---|---|
+| Soil Moisture | 0.88 | 1.29 | 2.83 |
+| Soil Temperature | 0.83 | 1.90 | 2,45 |
 ![PLSR regression coefficients soil temperature across the spectrum](/assets/plsr-file/PLSR%20regression%20-%20Soil%20temperature.png)
+
+omparing the two preprocessing approaches, raw spectra consistently performed
+better than SNV-corrected spectra for both targets, so the final models reported 
+here use raw reflectance without SNV correction. R² describes the proportion of
+variance in the measured parameter explained by the model, RMSECV represents the
+average prediction error on unseen samples, and RPD is the ratio of the target's
+natural variability to that prediction error. Based on the results in the table, 
+both models show sufficiently high RPD values, suggesting they are reliable for 
+practical estimation rather than rough screening only. These results indicate that, 
+within the range of soil conditions represented in the training data, hyperspectral
+reflectance alone can reliably substitute for direct lab measurement of soil moisture
+and temperature. Once calibrated, the models can be reused for new samples without 
+retraining, as long as new measurements come from the same sensor, the same spectral 
+range, and soil conditions comparable to the training data.
