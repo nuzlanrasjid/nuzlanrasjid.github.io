@@ -2,7 +2,7 @@
 title: "Differential Gene Expression Analysis with DESeq2 (<em>Drosophila melanogaster</em> dataset)"
 date: 2026-08-28
 summary: "Built a DESeq2 differential expression pipeline in R to identify genes affected by pasilla knockdown in Drosophila melanogaster, from raw counts to an annotated volcano plot."
-tools: [R, DESeq2, pheatmap, ggplot2, RNA-seq]
+tools: [R, DESeq2, pheatmap, ggplot2, RNA-seq, clusterProfiler, ]
 repo_url: "https://github.com/nuzlanrasjid/dge-analysis-deseq2"
 log2fc: 4
 neglogp: 1.3
@@ -65,13 +65,13 @@ change.
 **6. Functional enrichment (GO and KEGG).** Over-representation analysis
 was run with `clusterProfiler` and `org.Dm.eg.db`, separately for up- and
 down-regulated genes, with all genes tested by DESeq2 as the background.
-Unlike the volcano plot and DEG table (padj < 0.05 and |log2FC| > 1;
-[n_deg] genes), enrichment used all genes with padj < 0.05
-([n_up] up, [n_down] down). The fold-change cutoff highlights clearly
+Unlike the volcano plot and DEG table (padj < 0.05 and |log2FC| > 1, 
+enrichment used all genes with padj < 0.05
+(488 up, 601 down). The fold-change cutoff highlights clearly
 changed genes, but enrichment tests need enough genes to keep statistical
 power, and padj already controls the false discovery rate. Terms with
 adjusted p < 0.05 were considered significant, and redundant GO terms were
-reduced with `simplify`. KEGG was queried on [date]. Results are
+reduced with `simplify`. KEGG was queried on [September 2026]. Results are
 exploratory and do not show causal mechanisms.
 
 ```r
@@ -88,10 +88,9 @@ This plot illustrates the QC step, highlighting that the samples are separated i
 The highest expressed gene is FBgn0026562, as indicated by the orange-to-red color spectrum.
 ![Volcano plot of differentially expressed genes](/assets/dge_analysis/Volcano%20Plot.png)
 The plot differentiates between the two groups of genes (i.e., upregulated and downregulated) based on the set thresholds.
-![cnetplot gene-concept network](assets/dge_analysis/Gene-Concept%20Network.png)
+![cnetplot gene-concept network](/assets/dge_analysis/Gene-Concept%20Network.png)
 The figure depicts 15 GO terms divided into two distinct groups. The first group is associated with cell junctions and
 the epithelial barrier, while the other is related to carbohydrate/energy metabolism (at the bottom). Both groups are linked
 by a single shared gene, namely *Cht2*.
 ![dotplot side-by-side](/assets/dge_analysis/dotplot%20side-by-side.png)
-The plot in the upregulated section shows genes related to cellular structural and tissue development 
-functions. In contrast, the downregulated section shows genes related to the immune system.
+GO Biological Process terms enriched among up- and down-regulated genes (top 6 terms per cluster; padj < 0.05; redundant terms reduced with simplify). Numbers in parentheses are genes with a GO annotation in each cluster.
