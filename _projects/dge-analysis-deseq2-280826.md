@@ -63,15 +63,15 @@ genes with a statistically significant but biologically negligible
 change.
 
 **6. Functional enrichment (GO and KEGG).** Over-representation analysis
-was run with `clusterProfiler` and `org.Dm.eg.db`, separately for up- and
+was run with clusterProfiler and org.Dm.eg.db, separately for up- and
 down-regulated genes, with all genes tested by DESeq2 as the background.
-Unlike the volcano plot and DEG table (padj < 0.05 and |log2FC| > 1, 
-enrichment used all genes with padj < 0.05
+Unlike the volcano plot and DEG table (padj < 0.05 and |log2FC| > 1;
+289 genes), enrichment used all genes with padj < 0.05
 (488 up, 601 down). The fold-change cutoff highlights clearly
 changed genes, but enrichment tests need enough genes to keep statistical
 power, and padj already controls the false discovery rate. Terms with
 adjusted p < 0.05 were considered significant, and redundant GO terms were
-reduced with `simplify`. KEGG was queried on [September 2026]. Results are
+reduced with simplify. KEGG was queried on [date]. Results are
 exploratory and do not show causal mechanisms.
 
 ```r
