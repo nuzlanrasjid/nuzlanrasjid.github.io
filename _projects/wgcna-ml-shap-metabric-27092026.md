@@ -87,17 +87,14 @@ of one particular split.
 All three models reached comparable accuracy on the 5-class PAM50
 classification task (XGBoost ≈ 0.77, Random Forest ≈ 0.80, SVM ≈
 0.80).
-![Directional SHAP check for the top cross-model candidate genes on the Basal subtype](/assets/PASTE-PROJECT-SLUG-HERE/shap_directional_xgb_Basal.png)
-
-For the Basal subtype, `egfr` and `gata3` emerged as the
-strongest biomarker candidates: both ranked consistently high across
-all three models (by rank agreement rather than raw SHAP magnitude),
-showed a clean, single-direction relationship in the SHAP beeswarm
-plot — low GATA3 and high EGFR expression both pushing predictions
-toward Basal — and remained in the top 10 across all 5 resampled
-train-test splits. Both directions are consistent with established
-Basal-like breast cancer biology, where GATA3 (a luminal-lineage
-marker) is characteristically low and EGFR is characteristically
-overexpressed. Full per-model SHAP plots, the cross-model rank
-agreement table, and the stability check results are available in the
-linked repository.
+![Directional SHAP check for the top cross-model candidate genes on the Basal subtype](/assets/wgcna-ml-analysis/shap_directional_xgb_Basal.png)
+The figure illustrates the genomic features driving the Basal
+subtype prediction, specifically highlighting the key roles of
+`gata3` and `egfr`. Based on the SHAP values, `gata3` exerts the
+highest impact on the model's decision; its low expression levels
+(represented by blue dots on the right of the scale) strongly increase 
+the probability of a Basal classification, whereas high expression
+stands on the opposite side. Conversely, `egfr` demonstrates the 
+inverse behavior, where its high expression levels (represented 
+by pink dots on the right) positively contribute to the model's 
+prediction toward the Basal subtype."
