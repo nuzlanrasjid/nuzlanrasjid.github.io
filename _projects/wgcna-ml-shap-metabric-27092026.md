@@ -1,6 +1,6 @@
 ---
 title: "ML Classification & SHAP Biomarker Screening on WGCNA Gene Modules (METABRIC)"
-date: 2026-09-29
+date: 2026-09-27
 summary: "Trained XGBoost, Random Forest, and SVM classifiers on gene modules from a prior WGCNA analysis to predict PAM50 breast cancer subtype, then used SHAP to screen for candidate biomarkers with cross-model, directional, and stability checks."
 tools: [Python, XGBoost, Random Forest, SVM, SHAP, scikit-learn]
 repo_url: "https://github.com/nuzlanrasjid/PASTE-REPO-NAME-HERE"
