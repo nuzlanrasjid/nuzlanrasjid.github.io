@@ -83,13 +83,13 @@ of one particular split.
 
 ## Results
 
-![Accuracy comparison across XGBoost, Random Forest, and SVM for PAM50 subtype classification](/assets/PASTE-PROJECT-SLUG-HERE/perbandingan_akurasi_model.png)
-
-![Directional SHAP check for the top cross-model candidate genes on the Basal subtype](/assets/PASTE-PROJECT-SLUG-HERE/shap_directional_xgb_Basal.png)
-
+![Accuracy comparison across XGBoost, Random Forest, and SVM for PAM50 subtype classification](/assets/wgcna-ml-analysis/perbandingan_akurasi_model.png)
 All three models reached comparable accuracy on the 5-class PAM50
 classification task (XGBoost ≈ 0.77, Random Forest ≈ 0.80, SVM ≈
-0.80). For the Basal subtype, `egfr` and `gata3` emerged as the
+0.80).
+![Directional SHAP check for the top cross-model candidate genes on the Basal subtype](/assets/PASTE-PROJECT-SLUG-HERE/shap_directional_xgb_Basal.png)
+
+For the Basal subtype, `egfr` and `gata3` emerged as the
 strongest biomarker candidates: both ranked consistently high across
 all three models (by rank agreement rather than raw SHAP magnitude),
 showed a clean, single-direction relationship in the SHAP beeswarm
