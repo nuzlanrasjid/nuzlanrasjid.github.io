@@ -3,7 +3,7 @@ title: "ML Classification & SHAP Biomarker Screening on WGCNA Gene Modules (META
 date: 2026-09-27
 summary: "Trained XGBoost, Random Forest, and SVM classifiers on gene modules from a prior WGCNA analysis to predict PAM50 breast cancer subtype, then used SHAP to screen for candidate biomarkers with cross-model, directional, and stability checks."
 tools: [Python, XGBoost, Random Forest, SVM, SHAP, scikit-learn]
-repo_url: "https://github.com/nuzlanrasjid/PASTE-REPO-NAME-HERE"
+repo_url: "https://github.com/nuzlanrasjid/wgcna-ml-analysis"
 log2fc: 2.4
 neglogp: 2.1
 ---
@@ -23,9 +23,8 @@ as filters — rather than treating a single high SHAP score as
 sufficient evidence on its own.
 
 The dataset used is the same public **METABRIC** breast cancer dataset
-as the [WGCNA analysis](/PASTE-LINK-TO-WGCNA-PAGE-HERE) this project
-builds on (available via [Kaggle](https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric)),
-using the gene modules and clinical traits identified there as input.
+as the [WGCNA analysis](https://github.com/nuzlanrasjid/wgcna-analysis-metabric) this project
+builds on (available via [Kaggle](https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric)), using the gene modules and clinical traits identified there as input.
 
 ## Methods
 
@@ -58,7 +57,7 @@ xgb_model = XGBClassifier(objective="multi:softprob", num_class=len(le.classes_)
 
 **4. SHAP interpretability.** Computed SHAP values per model —
 `TreeExplainer` for XGBoost and Random Forest, `KernelExplainer` for
-SVM — validating the resulting array shape against `(n_samples,
+SVM, validating the resulting array shape against `(n_samples,
 n_features, n_classes)` before plotting, since multiclass SHAP output
 can otherwise be misread as feature-interaction values by some
 plotting calls.
