@@ -97,6 +97,7 @@ sample.
 
 Eight genes ranked in the top 15 of both models and form the consensus
 list:
+
 | Gene | Expression in Basal | RF rank | XGBoost rank |
 |------|--------------------|---------|--------------|
 | *GATA3* | lower | 3 | 1 |
