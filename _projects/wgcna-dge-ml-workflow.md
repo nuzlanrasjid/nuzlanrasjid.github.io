@@ -82,6 +82,9 @@ Across 10 random subsamples, mean balanced accuracy was
 SVM fell to chance level in three of the ten subsamples, so it was left
 out of the SHAP step.
 
+![Shap_beeswarm](/assets/wgcna-dge-ml-workflow/shap_beeswarm_rf.png)
+
+![Module-trait relationship heatmap across tumor size, tumor stage, and PAM50 subtype](/assets/wgcna-analysis/module_trait_relationship.png)
 For RF and XGBoost, the genes ranked in the top 15 by SHAP in both
 models were *GATA3, NOTCH1, NPNT, MAPT, ERBB3, HSD17B8, CDKN2A* and
 *CHEK1*. Comparing mean z-scores between the groups in the 42 samples,
