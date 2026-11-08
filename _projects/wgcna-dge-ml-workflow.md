@@ -2,7 +2,7 @@
 title: "Combining WGCNA and Differential Expression to Select Features for Machine Learning (METABRIC dataset)"
 date: 2026-11-08
 summary: "Documented a two-language workflow (R + Python) that intersects WGCNA module genes with differentially expressed genes to build a compact feature set for classifying Basal vs non-Basal breast cancer, evaluated with nested leave-one-out CV, permutation tests and SHAP."
-tools: [R, WGCNA, Python, scikit-learn, XGBoost, SHAP, Google Colab]
+tools: [R, WGCNA, Python, scikit-learn, XGBoost, SHAP]
 repo_url: "https://github.com/nuzlanrasjid/wgcna-metabric-training"
 ---
 
@@ -113,8 +113,5 @@ how much the evaluation design (nested CV, permutation test, repeated
 subsampling) changes how much the headline number can be trusted.
 
 ## References
-
-- Curtis C. et al. (2012). The genomic and transcriptomic architecture of
-  2,000 breast tumours reveals novel subgroups. *Nature* 486, 346–352.
 - Wang et al. (2022). *Genes* 13(6):1020. Pipeline structure adapted from
   this paper.
