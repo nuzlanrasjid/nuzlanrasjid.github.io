@@ -77,6 +77,7 @@ that were stable.
 | XGBoost | 0.722 | 0.0588 | 0.50 | 0.94 |
 | SVM | 0.667 | 0.0196 | 0.33 | 1.00 |
 
+
 Across 10 random subsamples, mean balanced accuracy was
 0.696 ± 0.073 (RF), 0.697 ± 0.095 (XGBoost) and 0.678 ± 0.155 (SVM). The
 SVM fell to chance level in three of the ten subsamples, so it was left
@@ -90,10 +91,10 @@ the two models express SHAP on different output scales, so compare gene
 ranks between models, not bar lengths.
 
 ![Shap_beeswarm](/assets/wgcna-dge-ml-workflow/shap_beeswarm_rf.png)
-SHAP beeswarm only generates for Random Forest. Each dot is one of the 42 samples. A
-dot to the right pushes the prediction toward Basal, a dot to the left
-toward non-Basal. Colour shows the expression level of that gene in that
-sample.
+SHAP beeswarm only generates HAP beeswarm, shown for Random Forest only. 
+Each dot is one of the 42 samples. A dot to the right pushes the prediction
+toward Basal, a dot to the left toward non-Basal. Colour shows the expression
+level of that gene in that sample.
 
 Eight genes ranked in the top 15 of both models and form the consensus
 list:
@@ -109,9 +110,7 @@ list:
 | *CHEK1* | higher | 11 | 6 |
 | *CDKN2A* | higher | 4 | 14 |
 
-For RF and XGBoost, the genes ranked in the top 15 by SHAP in both
-models were *GATA3, NOTCH1, NPNT, MAPT, ERBB3, HSD17B8, CDKN2A* and
-*CHEK1*. Comparing mean z-scores between the groups in the 42 samples,
+Comparing mean z-scores between the groups in the 42 samples,
 *HSD17B8, GATA3, MAPT, ERBB3* and *NPNT* were lower in Basal, while
 *NOTCH1, CDKN2A* and *CHEK1* were higher. Low *GATA3* in Basal tumours
 agrees with its known role as a luminal marker, and higher *CHEK1* and
@@ -122,17 +121,20 @@ interpretations of associations, not tested mechanisms.
 
 - **Small positive class.** With only 6 Basal samples, one extra or
   missed case moves sensitivity by about 17 points. The 0.67 to 0.75
-  range should be read as "better than chance", not as a precise
-  estimate.
+  range should be read as modestly above chance (XGBoost only
+  borderline), not as a precise estimate.
 - **Seed sensitivity.** Individual subsamples ranged from 0.49 to 0.92,
   so a single run can look better or worse than the typical result.
+- **Coarse permutation test.** With 50 permutations the smallest
+  possible p-value is 0.0196, and RF and SVM both sit at that floor. No
+  correction was applied for testing three models. More permutations
+  (e.g. 1,000) would give a finer estimate.
 - **Feature selection used the whole cohort.** Steps 1 to 3 were run on
-  all 1,699 samples, including the 42 later used for evaluation. This can
-  make the cross-validated scores optimistic. A stricter design would run
-  the selection inside each training fold.
-- **Hyperparameters were fixed**, not tuned, to keep the nested loop
-  affordable.
-
+  all 1,699 samples, including the 42 later used for evaluation. This
+  can make the cross-validated scores optimistic. A stricter design
+  would run the selection inside each training fold.
+- **Hyperparameters were fixed, not tuned**, to keep the
+  cross-validation affordable.
 ## Takeaway
 
 Intersecting an unsupervised view (WGCNA) with a supervised one (DGE)
