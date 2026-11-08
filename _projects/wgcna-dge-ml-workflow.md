@@ -4,6 +4,8 @@ date: 2026-11-08
 summary: "Documented a two-language workflow (R + Python) that intersects WGCNA module genes with differentially expressed genes to build a compact feature set for classifying Basal vs non-Basal breast cancer, evaluated with nested leave-one-out CV, permutation tests and SHAP."
 tools: [R, WGCNA, Python, scikit-learn, XGBoost, SHAP]
 repo_url: "https://github.com/nuzlanrasjid/ML-WGCNA-DEG"
+log2fc: 6
+neglogp: 1.4
 ---
 
 ## Overview
