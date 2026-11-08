@@ -82,9 +82,32 @@ Across 10 random subsamples, mean balanced accuracy was
 SVM fell to chance level in three of the ten subsamples, so it was left
 out of the SHAP step.
 
-![Shap_beeswarm](/assets/wgcna-dge-ml-workflow/shap_beeswarm_rf.png)
-
 ![Shap_bar](/assets/wgcna-dge-ml-workflow/shap_bar_basal_vs_rest.png)
+Mean absolute SHAP value of the top 15 genes for Random Forest (left) and
+XGBoost (right). Red bars mark genes with higher expression in Basal
+samples, blue bars lower expression. Note the different x-axis scales:
+the two models express SHAP on different output scales, so compare gene
+ranks between models, not bar lengths.
+
+![Shap_beeswarm](/assets/wgcna-dge-ml-workflow/shap_beeswarm_rf.png)
+SHAP beeswarm only generates for Random Forest. Each dot is one of the 42 samples. A
+dot to the right pushes the prediction toward Basal, a dot to the left
+toward non-Basal. Colour shows the expression level of that gene in that
+sample.
+
+Eight genes ranked in the top 15 of both models and form the consensus
+list:
+| Gene | Expression in Basal | RF rank | XGBoost rank |
+|------|--------------------|---------|--------------|
+| *GATA3* | lower | 3 | 1 |
+| *NOTCH1* | higher | 2 | 3 |
+| *MAPT* | lower | 1 | 9 |
+| *NPNT* | lower | 5 | 4 |
+| *ERBB3* | lower | 6 | 5 |
+| *HSD17B8* | lower | 10 | 2 |
+| *CHEK1* | higher | 11 | 6 |
+| *CDKN2A* | higher | 4 | 14 |
+
 For RF and XGBoost, the genes ranked in the top 15 by SHAP in both
 models were *GATA3, NOTCH1, NPNT, MAPT, ERBB3, HSD17B8, CDKN2A* and
 *CHEK1*. Comparing mean z-scores between the groups in the 42 samples,
@@ -112,12 +135,12 @@ interpretations of associations, not tested mechanisms.
 ## Takeaway
 
 Intersecting an unsupervised view (WGCNA) with a supervised one (DGE)
-reduced 489 genes to 79 and gave a feature set that RF and XGBoost could
-use above chance even with only 6 positive samples. The main lesson is
-how much the evaluation design (nested CV, permutation test, repeated
-subsampling) changes how much the headline number can be trusted.
+reduced 489 genes to 79. On these genes, Random Forest scored above
+chance by permutation test (p = 0.0196) with only 6 Basal samples, and
+XGBoost came close (p = 0.0588). The main lesson is how much the
+evaluation design (leave-one-out CV, permutation test, repeated
+subsampling) changes how far the headline accuracy can be trusted.
 
-## References
 ## References
 - Pereira, B., Chin, SF., Rueda, O. et al. The somatic mutation profiles
   of 2,433 breast cancers refine their genomic and transcriptomic
