@@ -24,7 +24,7 @@ PAM50 subtype label. The classification task is **Basal vs non-Basal**.
 ## Workflow
 
 | Step | Language | What it does | Output |
-|------|----------|--------------|--------|
+|-------------|----------|--------------|--------|
 | 1. WGCNA | R | Builds a co-expression network on all samples, finds modules, correlates module eigengenes with clinical traits | Module assignment per gene; significant modules (blue, turquoise, brown, yellow) holding 132 genes |
 | 2. DGE | Python | Basal vs non-Basal test per gene | 165 significant genes |
 | 3. Overlap | Python | Intersects steps 1 and 2 | 79 genes, each labelled with its module |
