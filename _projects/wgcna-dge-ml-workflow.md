@@ -1,6 +1,6 @@
 ---
-title: "Combining WGCNA and Differential Expression to Select Features for Machine Learning (METABRIC dataset)"
-date: 2026-11-08
+title: "Combining WGCNA and Differential Expression to Train Machine Learning Models on the METABRIC dataset"
+date: 2026-11-06
 summary: "Documented a two-language workflow (R + Python) that intersects WGCNA module genes with differentially expressed genes to build a compact feature set for classifying Basal vs non-Basal breast cancer, evaluated with nested leave-one-out CV, permutation tests and SHAP."
 tools: [R, WGCNA, Python, scikit-learn, XGBoost, SHAP]
 repo_url: "https://github.com/nuzlanrasjid/ML-WGCNA-DEG"
@@ -10,16 +10,16 @@ neglogp: 1.4
 
 ## Overview
 
-Gene expression data usually has far more features than samples, so
-choosing which genes go into a classifier matters as much as choosing
+Gene expression data usually has more features than samples, so
+choosing which genes are selected for a classifier matters as much as choosing
 the classifier. This project documents one way to do that selection:
-WGCNA finds groups of co-expressed genes without looking at the class
-label, differential expression finds genes that separate the two classes,
-and the **intersection** keeps genes that are both. The resulting short
+(1) WGCNA finds groups of co-expressed genes without looking at the class
+label; (2) Differential expression finds genes that separate the two classes,
+and (3)the **intersection** keeps genes that are both. The resulting short
 gene list is then used to train and evaluate machine learning models.
 
 The dataset is **METABRIC** breast cancer expression and clinical data
-(Curtis et al., 2012, *Nature*), accessed through a Kaggle re-upload:
+(Pereira et al., 2016), accessed through a Kaggle re-upload on this link https://www.kaggle.com/datasets/raghadalharbi/breast-cancer-gene-expression-profiles-metabric,  
 1,699 samples, 489 genes (z-scored expression), clinical traits and a
 PAM50 subtype label. The classification task is **Basal vs non-Basal**.
 
@@ -47,9 +47,9 @@ apply. Each gene was tested with Mann-Whitney U and a t-test, p-values
 were corrected with Benjamini-Hochberg, and a gene was called significant
 at padj < 0.05 and |mean difference in z-score| > 0.5.
 
-**3. Overlap.** Genes significant in step 2 were intersected with the
-module genes from step 1. Gene names were harmonised first, because R
-rewrites names such as `hla-g` to `hla.g`, which silently breaks the join.
+**3. Overlap.** Genes significant in step 2 were intersected with the module
+genes from step 1. It was necessary to standardize the gene names to 
+prevent bugs caused by inconsistent naming formats.
 
 **4. Machine learning on a small sample.** To test how the approach
 behaves when samples are scarce, 42 samples were drawn (6 Basal, 36
@@ -115,8 +115,8 @@ how much the evaluation design (nested CV, permutation test, repeated
 subsampling) changes how much the headline number can be trusted.
 
 ## References
-
-- Curtis C. et al. (2012). The genomic and transcriptomic architecture of
-  2,000 breast tumours reveals novel subgroups. *Nature* 486, 346–352.
-- Wang et al. (2022). *Genes* 13(6):1020. Pipeline structure adapted from
-  this paper.
+## References
+- Pereira, B., Chin, SF., Rueda, O. et al. The somatic mutation profiles
+  of 2,433 breast cancers refine their genomic and transcriptomic
+  landscapes. Nat Commun 7, 11479 (2016).
+  https://doi.org/10.1038/ncomms11479
