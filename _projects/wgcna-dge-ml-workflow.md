@@ -91,9 +91,9 @@ the two models express SHAP on different output scales, so compare gene
 ranks between models, not bar lengths.
 
 ![Shap_beeswarm](/assets/wgcna-dge-ml-workflow/shap_beeswarm_rf.png)
-SHAP beeswarm only generates HAP beeswarm, shown for Random Forest only. 
-Each dot is one of the 42 samples. A dot to the right pushes the prediction
-toward Basal, a dot to the left toward non-Basal. Colour shows the expression
+SHAP beeswarm, shown for Random Forest only. Each dot is one of the 42
+samples. A dot to the right pushes the prediction toward Basal, 
+a dot to the left toward non-Basal. Colour shows the expression
 level of that gene in that sample.
 
 Eight genes ranked in the top 15 of both models and form the consensus
@@ -135,6 +135,7 @@ interpretations of associations, not tested mechanisms.
   would run the selection inside each training fold.
 - **Hyperparameters were fixed, not tuned**, to keep the
   cross-validation affordable.
+  
 ## Takeaway
 
 Intersecting an unsupervised view (WGCNA) with a supervised one (DGE)
